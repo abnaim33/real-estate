@@ -46,10 +46,7 @@ export const DataProvider = ({ children }) => {
     //     if (cartItems) dispatch({ type: 'ADD_CART', payload: cartItems })
     // }, [])
 
-    useEffect(() => {
-        localStorage.setItem('cartItems', JSON.stringify(cart))
 
-    }, [cart])
 
     useEffect(() => {
         if (auth.token) {

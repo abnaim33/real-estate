@@ -1,21 +1,17 @@
 
 import { useTheme } from 'next-themes'
-import { useContext, useState } from 'react'
-import { RiMoonFill, RiSunLine, RiShoppingCart2Fill } from 'react-icons/ri'
+import Head from 'next/head'
+import { useState } from 'react'
 import About from '../components/About'
 import Footer from '../components/Footer'
 import Homes from '../components/Homes'
-import Navbar from '../components/Navbar'
 import Offer from '../components/Offer'
 import Services from '../components/Services'
-import { DataContext } from '../store/GlobalState'
+
 
 export default function Home() {
 
-  const { state, dispatch } = useContext(DataContext)
 
-  const { auth } = state
-  console.log(auth, 'auth')
   const { systemTheme, theme, setTheme } = useTheme()
   const currentTheme = theme === 'system' ? systemTheme : theme
 
@@ -25,6 +21,11 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>
+          Happy Estate
+        </title>
+      </Head>
       <main className='home flex flex-col items-center bg-black text-white '>
         {/* <Navbar /> */}
 

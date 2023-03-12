@@ -56,7 +56,12 @@ const Navbar = () => {
                     <div className={`flex-1 justify-self-center pb-3 mt-0 md:block md:pb-0 md:mt-0
 ${navbar ? 'block' : 'hidden'}`}>
                         <div className='items-center space-y-4 md:space-y-0 justify-center md:flex md:space-x-6 '>
-                            {
+                            {auth.user?.role === 'admin' ?
+                                <>
+                                    <Link href='/create'>Create</Link>
+                                    <Link href='/users'>Users</Link>
+                                </>
+                                :
                                 Navbar_Items.map((item, idx) => {
                                     return (
                                         <Link
@@ -75,7 +80,7 @@ ${navbar ? 'block' : 'hidden'}`}>
                                 })
                             }
 
-                            {auth.user.name ?
+                            {auth.user ?
                                 <Link href='/signin' className='bg-indigo-700 px-6 py-1.5 rounded-md text-white'>
                                     Profile
                                 </Link>

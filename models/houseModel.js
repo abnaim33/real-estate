@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const cardSchema = new mongoose.Schema({
+const houseSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
@@ -13,7 +13,7 @@ const cardSchema = new mongoose.Schema({
     price: {
         type: Number,
         required: true,
-        unique: true
+
 
     },
     location: {
@@ -30,7 +30,7 @@ const cardSchema = new mongoose.Schema({
         required: true
     },
     rooms: {
-        type: String,
+        type: Number,
         required: true
     }
 
@@ -38,5 +38,5 @@ const cardSchema = new mongoose.Schema({
     timestamps: true
 })
 
-let Dataset = mongoose.models.card || mongoose.model('card', cardSchema)
+let Dataset = mongoose.models.house || mongoose.model('house', houseSchema)
 export default Dataset
