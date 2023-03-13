@@ -35,18 +35,18 @@ const getHouse = async (req, res) => {
 
 const updateHouse = async (req, res) => {
     try {
-        const result = await auth(req, res)
-        if (result.role !== 'admin')
-            return res.status(400).json({ err: 'Authentication is not valid.' })
+        // const result = await auth(req, res)
+        // if (result.role !== 'admin')
+        // return res.status(400).json({ err: 'Authentication is not valid.' })
 
         const { id } = req.query
-        const { title, price, inStock, description, content, category, images } = req.body
-
-        if (!title || !price || !inStock || !description || !content || category === 'all' || images.length === 0)
+        const { title, price, description, location, type, images, rooms } = req.body
+        console.log(req.body, 'from api id')
+        if (!title || !price || !location || !description || !type || !rooms || !images)
             return res.status(400).json({ err: 'Please add all the fields.' })
 
         await Houses.findOneAndUpdate({ _id: id }, {
-            title: title.toLowerCase(), price, inStock, description, content, category, images
+            title: title.toLowerCase(), price, description, location, type, images, rooms
         })
 
         res.json({ msg: 'Success! Updated a House' })

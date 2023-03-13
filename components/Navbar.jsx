@@ -25,15 +25,15 @@ const Navbar = () => {
     const { state, dispatch } = useContext(DataContext)
 
     const { auth } = state
-    console.log(auth, 'auth')
+
     const { systemTheme, theme, setTheme } = useTheme()
     const currentTheme = theme === 'system' ? systemTheme : theme
     const [navbar, setNavbar] = useState(false)
 
 
     return (
-        <header className='w-full sm:px-20 mx-auhref px-4 bg-white shadow 
-     hrefp-0 z-50 dark:bg-[#121212] dark:border-b dark:border-shrefne-500'>
+        <header className='w-full sm:px-20  px-4 bg-white shadow 
+      z-50 dark:bg-[#121212] dark:border-b '>
             <div className='justify-between md:items-center md:flex'>
                 <div>
 

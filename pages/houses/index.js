@@ -1,13 +1,14 @@
 
 import React, { useContext } from 'react'
-import { DataContext } from '../store/GlobalState'
+// import { DataContext } from '../store/GlobalState'
 import { BiBed } from 'react-icons/bi'
 import Link from 'next/link'
-const houses = () => {
+import { DataContext } from '../../store/GlobalState'
+const Houses = () => {
 
     const { state, dispatch } = useContext(DataContext)
     const { auth, houses } = state
-    console.log(houses)
+
     // if (auth.user?.role === 'admin') return null
     return (
         <div>
@@ -32,7 +33,11 @@ const houses = () => {
                                     <h1>{item.location}</h1>
                                     <h1>4</h1>
                                 </div>
-                                <div><button className='px-6 py-2 bg-indigo-700 text-white rounded-lg'>Show Details</button></div>
+                                <div>
+                                    <Link href={`/houses/${item._id}`}
+                                        className='px-6 py-2 bg-indigo-700 text-white rounded-lg'>
+                                        Edit House</Link>
+                                </div>
                             </div>
 
                         </div>
@@ -43,4 +48,4 @@ const houses = () => {
     )
 }
 
-export default houses
+export default Houses
