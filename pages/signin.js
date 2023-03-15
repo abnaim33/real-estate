@@ -6,6 +6,7 @@ import { DataContext } from '../store/GlobalState';
 import { postData } from '../utils/fetchData';
 import Cookie from 'js-cookie'
 import { useRouter } from 'next/router'
+import Link from 'next/link';
 
 const Signin = () => {
     const router = useRouter()
@@ -109,7 +110,7 @@ const Signin = () => {
                         className="p-4 py-6 md:py-20 text-white bg-indigo-500 md:w-80 md:flex-shrink-0 md:flex md:flex-col md:items-center md:justify-evenly"
                     >
                         <div className="my-3 text-4xl font-bold tracking-wider text-center">
-                            <a href="#">Happy Estate</a>
+                            <Link href="/">Happy Estate</Link>
                         </div>
                         <p className="mt-6 font-normal text-center text-gray-300 md:mt-0">
                             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos sunt facilis corporis laboriosam nesciunt quibusdam,

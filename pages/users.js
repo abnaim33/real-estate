@@ -35,7 +35,7 @@ const Users = () => {
             <Head>
                 <title>Users</title>
             </Head>
-
+            <h1 className='mb-10 font-semibold'>This page is for desktop only</h1>
             {
                 auth.user?.role && auth.user.role === 'admin' ?
 
@@ -88,7 +88,7 @@ const Users = () => {
                                                 <Link href={
                                                     auth.user.root && auth.user.email !== user.email
                                                         ? `/edit_user/${user._id}` : '#!'
-                                                } className='mb-5 bg-gray-600'>
+                                                } className='mr-5 '>
                                                     <FiEdit size={25} />
 
                                                 </Link>

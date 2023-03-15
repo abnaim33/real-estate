@@ -3,7 +3,7 @@ import { deleteItem } from "../store/Actions";
 import { DataContext } from "../store/GlobalState";
 
 export default function Modal({ showModal, setShowModal, product, cart }) {
-    // const [showModal, setShowModal] = React.useState(false);
+
     const { state, dispatch } = useContext(DataContext)
     const handleDelete = () => {
 

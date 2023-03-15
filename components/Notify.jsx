@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { toast } from 'react-toastify'
 import { DataContext } from '../store/GlobalState'
-// import Loading from './Loading'
+
 
 const Notify = () => {
 
@@ -10,7 +10,9 @@ const Notify = () => {
 
     return (
         <div>
-            {notify.loading && <h1>Loading</h1>}
+            {notify.loading && toast("Loading", {
+                type: "info"
+            })}
             {notify.error && toast(notify.error, {
                 type: "error"
             })}

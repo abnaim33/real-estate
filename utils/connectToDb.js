@@ -7,14 +7,11 @@ const connectToDB = () => {
         return;
     }
 
-    mongoose.connect(process.env.MONGODB_URL, err => {
-        if (err) throw err;
-        console.log('Connected to mongodb.')
-    })
 
-    // mongoose.connect(process.env.MONGODB_URL)
-    //     .then((res) => console.log(res))
-    //     .catch(err => console.log(err))
+
+    mongoose.connect(process.env.MONGODB_URL)
+        .then((res) => console.log(res.json()))
+        .catch(err => console.log(err))
 }
 
 

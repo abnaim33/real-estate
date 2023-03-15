@@ -51,7 +51,7 @@ const EditUser = () => {
 
 
     return (
-        <div className="edit_user  mt-20 md:mt-36">
+        <div className=" mt-10 px-10">
             <Head>
                 <title>Edit User</title>
             </Head>
@@ -59,25 +59,26 @@ const EditUser = () => {
 
 
             <div>
-                <button className="btn btn-dark" onClick={() => router.back()}>
-                    <i className="fas fa-long-arrow-alt-left" aria-hidden></i> Go Back
+                <button className="bg-black dark:bg-white text-white dark:text-black px-6 py-2 rounded" onClick={() => router.back()}>
+                    Go Back
                 </button>
             </div>
 
-            <div className="col-md-4 mx-auto my-4">
-                <h2 className="text-uppercase text-secondary">Edit User</h2>
+            <div className="space-y-3 mx-auto my-4">
+                <h2 className="font-medium text-2xl">Edit User</h2>
 
-                <div className="form-group">
-                    <label htmlFor="name" className="d-block">Name </label>
-                    <input type="text" id="name" defaultValue={editUser.name} disabled />
+                <div>
+                    <label htmlFor="name">Name :</label>
+                    <input type="text" id="name" className='ml-5 p-4'
+                        defaultValue={editUser.name} disabled />
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="email" className="d-block">Email </label>
-                    <input type="text" id="email" defaultValue={editUser.email} disabled />
+                <div>
+                    <label htmlFor="email" >Email :</label>
+                    <input type="text" id="email" className='ml-5 p-4' defaultValue={editUser.email} disabled />
                 </div>
 
-                <div className="form-group">
+                <div className='flex'>
                     <input type="checkbox" id="isAdmin" checked={checkAdmin}
                         style={{ width: '20px', height: '20px' }} onChange={handleCheck} />
 
@@ -86,7 +87,7 @@ const EditUser = () => {
                     </label>
                 </div>
 
-                <button className="btn btn-dark" onClick={handleSubmit}>Update</button>
+                <button className="bg-black dark:bg-white text-white dark:text-black px-6 py-2 rounded-md" onClick={handleSubmit}>Update</button>
 
             </div>
 

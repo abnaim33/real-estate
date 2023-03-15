@@ -1,35 +1,14 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { useContext } from 'react'
 import { BiBed } from 'react-icons/bi'
-const homeItems = [
-    {
-        image: 'https://res.cloudinary.com/dsuh9ww6d/image/upload/v1678421270/vu-anh-TiVPTYCG_3E-unsplash_a43glu.jpg',
-        price: '$100K',
-        location: 'Dhaka',
-        type: 'apartment',
-        size: '1 Acre'
-    },
+import { DataContext } from '../store/GlobalState'
 
-
-    {
-        image: 'https://res.cloudinary.com/dsuh9ww6d/image/upload/v1678421270/vu-anh-TiVPTYCG_3E-unsplash_a43glu.jpg',
-        price: '$100K',
-        location: 'Dhaka',
-        type: 'apartment',
-        size: '1 Acre'
-    },
-
-
-    {
-        image: 'https://res.cloudinary.com/dsuh9ww6d/image/upload/v1678421270/vu-anh-TiVPTYCG_3E-unsplash_a43glu.jpg',
-        price: '$100K',
-        location: 'Dhaka',
-        type: 'apartment',
-        size: '1 Acre'
-    },
-]
 
 const Homes = () => {
+
+    const { state, dispatch } = useContext(DataContext)
+    const { categories, auth, houses } = state
+
     return (
         <div className='bg-gray-200 dark:bg-gray-400 max-h-auto px-10 py-20'>
             <div className='w-[50%] mx-auto text-center text-black dark:text-white  mb-5'>
@@ -42,10 +21,10 @@ const Homes = () => {
             <div className='flex items-center justify-between flex-wrap dark:text-black'>
 
                 {
-                    homeItems.map((item, index) => (
+                    houses.map((item, index) => (
                         <div key={index} className='flex flex-col h-[400px] bg-gray-100
                         dark:bg-gray-200 mx-auto md:mx-0 mt-10 md:mt-0 shadow-md rounded-md overflow-hidden'  >
-                            <img src={item.image} alt="" className='w-full h-[50%]' />
+                            <img src={item.images} alt="" className='w-full h-[50%]' />
 
                             <div className='flex flex-col p-5 justify-between'>
                                 <div className='flex justify-between items-center'>
@@ -58,7 +37,7 @@ const Homes = () => {
 
                                 <div className='mb-2 flex items-center justify-between text-lg'>
                                     <h1>{item.location}</h1>
-                                    <h1>4</h1>
+                                    <h1>{item.rooms}</h1>
                                 </div>
                                 <div><button className='px-6 py-2 bg-indigo-700 text-white rounded-lg'>Show Details</button></div>
                             </div>
@@ -70,7 +49,7 @@ const Homes = () => {
 
             <div className='mx-auto text-center'>
                 <button className='mt-10 bg-gray-900 px-6 py-2 text-white rounded-md'>
-                    <Link href='/homes'>
+                    <Link href='/houses'>
                         View all homes
                     </Link>
                 </button>

@@ -10,7 +10,7 @@ const ProductsManager = () => {
         price: 0,
         description: '',
         location: '',
-        type: 'apartment',
+        type: 'bungalow',
         images: '',
         rooms: 0
     }
@@ -21,7 +21,7 @@ const ProductsManager = () => {
 
     const { state, dispatch } = useContext(DataContext)
     const { categories, auth, houses } = state
-    console.log(houses)
+
     const router = useRouter()
     const { id } = router.query
     const [onEdit, setOnEdit] = useState(false)
@@ -114,14 +114,14 @@ const ProductsManager = () => {
             <Head>
                 <title>Products Manager</title>
             </Head>
-            <form className="row" onSubmit={handleSubmit}>
-                <div className="col-md-6">
+            <form className="mx-auto" onSubmit={handleSubmit}>
+                <div className="w-full">
 
                     <input type="text" name="title" value={title}
                         placeholder="Title" className="d-block my-4 w-100 p-2"
                         onChange={handleChangeInput} />
 
-                    <div className="row">
+                    <div className="flex">
                         <div className="col-sm-6">
                             <label htmlFor="price">Price</label>
                             <input type="number" name="price" value={price}
@@ -137,41 +137,51 @@ const ProductsManager = () => {
                         </div>
                     </div>
 
-                    <textarea name="description" id="description" cols="30" rows="4"
-                        placeholder="Description" onChange={handleChangeInput}
-                        className="d-block my-4 w-100 p-2" value={description} />
+                    <div className='flex md:flex-row flex-col'>
 
-                    <textarea name="location" id="location" cols="30" rows="6"
-                        placeholder="location" onChange={handleChangeInput}
-                        className="d-block my-4 w-100 p-2" value={location} />
+                        <textarea name="description" id="description" cols="30" rows="4"
+                            placeholder="Description" onChange={handleChangeInput}
+                            className="d-block my-4 w-100 p-2" value={description} />
+
+                        <textarea name="location" id="location" cols="30" rows="6"
+                            placeholder="location" onChange={handleChangeInput}
+                            className="d-block my-4 w-100 p-2" value={location} />
+                    </div>
 
                     <div className="input-group-prepend px-0 my-2">
                         <select name="type" id="type" value={type}
                             onChange={handleChangeInput} className="custom-select text-capitalize">
-                            <option value="all">All Products</option>
-                            {/* {
-                                categories.map(item => (
-                                    <option key={item._id} value={item._id}>
-                                        {item.name}
-                                    </option>
-                                ))
-                            } */}
+                            <option value="bungalow">Bungalow</option>
+                            <option value="modularHome">
+                                Modular Home
+                            </option>
+
+                            <option value="apartment">
+                                Apartment
+                            </option>
+                            <option value="townHouse">
+                                Town House
+                            </option>
+
+                            <option value="ranchHome">
+                                Ranch Home
+                            </option>
                         </select>
                     </div>
 
-                    <button type="submit" className="btn btn-info my-2 px-4">
+                    <button type="submit" className="rounded bg-black dark:bg-white text-white dark:text-black my-2 px-4 py-1">
                         {onEdit ? 'Update' : 'Create'}
                     </button>
 
                 </div>
 
-                <div className="col-md-6 my-4">
+                <div className="w-full my-4">
                     <div className="input-group mb-3">
                         <div className="input-group-prepend">
-                            <button className="input-group-text">Upload</button>
+                            <h1 className='mb-3'>Image url </h1>
                         </div>
                         <div className="custom-file border rounded">
-                            <input type="text" className="custom-file-input"
+                            <input type="text" className="w-full h-auto"
                                 name="images" value={images}
                                 onChange={handleChangeInput} multiple />
                         </div>
@@ -179,16 +189,15 @@ const ProductsManager = () => {
                     </div>
 
                     <div className="flex img-up mx-0  min-w-[100px] min-h-[100px]">
-                        {/* {
-                            images.map((img, index) => (
-                                <div key={index} className="file_img w-[200px] my-1 ">
-                           
-                                    <img src={img.url}
-                                        alt="" className="w-full rounded" />
-                                    <span onClick={() => deleteImage(index)}>X</span>
-                                </div>
-                            ))
-                        } */}
+
+
+                        <div className="file_img w-[200px] my-1 ">
+
+                            <img src={images}
+                                alt="" className="w-full rounded" />
+
+                        </div>
+
                     </div>
 
 

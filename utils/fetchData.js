@@ -1,4 +1,4 @@
-const baseUrl = process.env.BASE_URL
+
 
 export const getData = async (url, token) => {
     const res = await fetch(`http://localhost:3000/api/${url}`, {
