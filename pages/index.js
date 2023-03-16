@@ -18,7 +18,7 @@ export default function Home() {
   const [location, setLocation] = useState('Dhaka')
   const [houseType, setHouseType] = useState('apartment')
   const [priceRange, setPriceRange] = useState('50K-100K')
-
+  // have to create search result page
   return (
     <>
       <Head>

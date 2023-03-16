@@ -1,8 +1,7 @@
-// import connectDB from '../../../utils/connectDB'
-import Houses from '../../../models/HouseModel'
+
 import connectToDB from '../../../utils/connectToDb';
 import auth from '../../../middleware/auth'
-
+import Houses from '../../../models/houseModel'
 connectToDB()
 
 export default async (req, res) => {
@@ -35,13 +34,13 @@ const getHouse = async (req, res) => {
 
 const updateHouse = async (req, res) => {
     try {
-        // const result = await auth(req, res)
-        // if (result.role !== 'admin')
-        // return res.status(400).json({ err: 'Authentication is not valid.' })
+        const result = await auth(req, res)
+        if (result.role !== 'admin')
+            return res.status(400).json({ err: 'Authentication is not valid.' })
 
         const { id } = req.query
         const { title, price, description, location, type, images, rooms } = req.body
-        console.log(req.body, 'from api id')
+
         if (!title || !price || !location || !description || !type || !rooms || !images)
             return res.status(400).json({ err: 'Please add all the fields.' })
 

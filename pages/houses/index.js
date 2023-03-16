@@ -1,6 +1,5 @@
 
 import React, { useContext } from 'react'
-// import { DataContext } from '../store/GlobalState'
 import { BiBed } from 'react-icons/bi'
 import Link from 'next/link'
 import { DataContext } from '../../store/GlobalState'
