@@ -29,7 +29,7 @@ const EditHouse = () => {
 
 
         dispatch({ type: 'NOTIFY', payload: { loading: true } })
-        const res = await fetch(`https://real-estate-p5w6yfmf2-abnaim33.vercel.app/api/houses/${id}`, {
+        const res = await fetch(`https://real-estate-abnaim33.vercel.app/api/houses/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
