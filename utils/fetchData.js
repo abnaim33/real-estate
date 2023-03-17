@@ -1,4 +1,4 @@
-
+// https://real-estate-abnaim33.vercel.app/
 
 export const getData = async (url, token) => {
     const res = await fetch(`https://real-estate-abnaim33.vercel.app/api/${url}`, {
